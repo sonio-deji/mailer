@@ -39,6 +39,7 @@ app.post("/send", (req, res) => {
       console.log(err);
     } else {
       console.log("sent");
+      res.send("sent");
     }
   });
 });
