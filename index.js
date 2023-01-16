@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 const express = require("express");
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const cors = require("cors");
 const app = express();
 
@@ -19,11 +19,11 @@ var transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     user: "bridgetsmith855@gmail.com",
-    pass: "oniwkzywponbuqyf",
+    pass: "oiwnwjojdxbzpefz",
   },
 });
 
-app.post("/send", (req, res) => {
+app.post("/", (req, res) => {
   const mailOptions = {
     from: `bridgetsmith855@gmail.com`,
     to: `atandauthman2@gmail.com`,
